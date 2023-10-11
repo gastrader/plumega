@@ -10,15 +10,15 @@
   margin-top: 0;
 }
 
-body {
+.work {
   line-height: 1.6;
   font-size: 18px;
   padding: 0 10px;
-  margin: 60px auto;
+  margin: 30px auto;
   max-width: 700px;
+  background: white;
 }
 
-h2,
 h2,
 h3 {
   line-height: 1.2;
@@ -27,6 +27,7 @@ h3 {
 h2 {
   font-style: italic;
   font-size: 18px;
+  margin-bottom: 25px;
 }
 
 a:link,
@@ -34,8 +35,7 @@ a:visited {
   color: blue;
 }
 
-code,
-.code {
+code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 1.125rem;
   line-height: 1.6;
@@ -47,6 +47,62 @@ code,
   background-color: rgba(0, 0, 0, 0.04);
   border-radius: 3px;
 }
+code:hover {
+  color: darkblue;
+  text-decoration: underline;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  padding: 30px 0;
+  background: white;
+  position: relative;
+  white-space: nowrap;
+}
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: 35s slide infinite linear;
+}
+.logos-slide img {
+  height: 50px;
+  margin: 0 40px;
+  filter: grayscale(100%);
+  filter: contrast(0%);
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+/* }
 .subtitle {
   text-align: center;
   font-size: medium;
@@ -90,4 +146,4 @@ code,
   font-size: 85%;
   background-color: rgba(0, 0, 0, 0.04);
   border-radius: 3px;
-}
+} */
